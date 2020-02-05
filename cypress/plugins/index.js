@@ -14,4 +14,11 @@
 module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
+  // on('before:browser:launch', (browser = {}, args) => {
+  //      if (browser.name === 'chrome' || browser.name === 'chromium' || browser.name === 'canary') {
+  //          args.push('--window-size=1000,1200');
+  //          args.push('--start-maximized');
+  //          return args;
+  //      }
+  //  });
 }
