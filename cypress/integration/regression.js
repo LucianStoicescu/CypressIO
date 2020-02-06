@@ -12,11 +12,12 @@ describe('Grommet regression test', function(){
      cy.get('[class="p-t-l p-b-s p-t-m-phone p-b-0-phone"]').within(() =>{
         cy.get('a').eq(1).click()
      })
-     cy.url().should('include','products/buzee-wraps')
+     cy.url().should('include','products')
    });
    it('Should increment the product amount to 3 and add to cart', ()=> {
-     cy.get('.quantity-dropdown').select('3')
-     cy.contains('Add to Cart').click()
+     cy.wait(3000)
+     //cy.get('.quantity-dropdown').select('3')
+     cy.get('[formaction="cart.add"]').click()
      //cy.get('.button.btn').click()
    });
 
