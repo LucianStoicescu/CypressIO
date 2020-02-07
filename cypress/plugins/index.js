@@ -16,9 +16,18 @@ module.exports = (on, config) => {
   // `config` is the resolved Cypress config
   // on('before:browser:launch', (browser = {}, args) => {
   //      if (browser.name === 'chrome' || browser.name === 'chromium' || browser.name === 'canary') {
-  //          args.push('--window-size=1000,1200');
-  //          args.push('--start-maximized');
+  //          // args.push('--window-size=1000,1200');
+  //          // args.push('--start-maximized');
+  //             launchOptions.args.push('--headless');
   //          return args;
   //      }
   //  });
+    on('before:browser:launch', (browser,launchOptions) => {
+      // launchOptions.args.push('--headless')
+
+      return launchOptions
+    })
+
+
+
 }

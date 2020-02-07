@@ -23,7 +23,8 @@ describe('Grommet regression test', function(){
      cy.get('.quantity-dropdown').select('3')
      cy.wait(5000)
      cy.get('#cart_button_state > button').click()
-     cy.contains('2 items in your cart')
+     cy.log('This is garbage')
+     cy.contains('4 items in your cart')
    });
 
 })
