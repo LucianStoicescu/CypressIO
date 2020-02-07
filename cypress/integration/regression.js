@@ -1,6 +1,10 @@
 describe('Grommet regression test', function(){
+   Cypress.on('uncaught:exception', (err, runnable) => {
+   // returning false here prevents Cypress from
+   // failing the test
+   return false
+   })
    it('Visits the main page', function(){
-     cy.viewport('macbook-15');
      cy.visit('https://www.dev.thegrommet.com')
    })
    it('Should click the second product being discovered', function(){
@@ -14,11 +18,12 @@ describe('Grommet regression test', function(){
      })
      cy.url().should('include','products')
    });
+
    it('Should increment the product amount to 3 and add to cart', ()=> {
-     cy.wait(3000)
-     //cy.get('.quantity-dropdown').select('3')
-     cy.get('[formaction="cart.add"]').click()
-     //cy.get('.button.btn').click()
+     cy.get('.quantity-dropdown').select('3')
+     cy.wait(5000)
+     cy.get('#cart_button_state > button').click()
+     cy.contains('2 items in your cart')
    });
 
 })
